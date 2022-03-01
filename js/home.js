@@ -33,7 +33,10 @@ const searchResult = (data) => {
             div.classList.add("col-lg-4", "col-md-6", "col-12");
 
             div.innerHTML = `<div class="card h-100">
-                <img src="${image}" class="card-img-top img-fluid" alt="phone_img">
+                <div class="d-flex justify-content-center">
+                    <img src="${image}" class="card-img-top img-fluid w-50" alt="phone_img">
+                </div>
+                
                 <div class="card-header h-100 border-0 bg-white mt-2">
                     <h5 class="card-title">${phoneName}</h5>
                 </div>
@@ -48,6 +51,7 @@ const searchResult = (data) => {
             const parentContainer = document.getElementById("result-container");
             parentContainer.appendChild(div);
         });
+
     } else {
         document.getElementById("errMsg").style.display = "block";
     }
