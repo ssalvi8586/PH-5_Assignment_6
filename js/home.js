@@ -131,9 +131,8 @@ const showDetails = data => {
     const displaySize = mainFeatures.displaySize;
     const chipSet = mainFeatures.chipSet;
     const memory = mainFeatures.memory;
-    const sensors = mainFeatures.sensors.toString();
+    const sensors = mainFeatures.sensors.toString() || "";
     const others = element.others;
-    const id = element.slug;
 
     // functions to check for more features
     const getMoreFeatures = (others) => {
