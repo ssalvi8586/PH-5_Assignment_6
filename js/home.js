@@ -21,7 +21,6 @@ document.getElementById("searchBtn").addEventListener('click', () => {
     } else {
         document.getElementById("spinner").style.display = "none";
         document.getElementById("instruction").style.display = "block";
-        // document.getElementById("errmsg").style.display = "none";
     }
 })
 
@@ -35,7 +34,6 @@ const searchResult = (data) => {
             const brand = element.brand;
             const image = element.image;
             const id = element.slug;
-            // console.log(id);
             const div = document.createElement("div");
             div.classList.add("col-lg-4", "col-md-6", "col-12");
 
@@ -55,21 +53,58 @@ const searchResult = (data) => {
                 </div>
             </div>`;
 
-            div.id = `${id}`;
-            // console.log(phoneName);
             const parentContainer = document.getElementById("result-container");
             parentContainer.appendChild(div);
         });
 
+        document.getElementById("spinner").style.display = "none";
+        document.getElementById("results").style.display = "block";
+
+        if (data.data.length > 20) {
+            const parentContainer = document.getElementById("result-container");
+            const seeAllBtn = document.createElement("button");
+            seeAllBtn.classList.add("btn", "btn-success", "col-12");
+            seeAllBtn.innerText = "See All";
+            parentContainer.appendChild(seeAllBtn);
+            seeAllBtn.addEventListener('click', () => {
+                seeAllBtn.style.display = "none";
+
+                data.data.slice(20).forEach(element => {
+                    const phoneName = element.phone_name;
+                    const brand = element.brand;
+                    const image = element.image;
+                    const id = element.slug;
+                    const div = document.createElement("div");
+                    div.classList.add("col-lg-4", "col-md-6", "col-12");
+
+                    div.innerHTML = `<div class="card h-100">
+                        <div class="d-flex justify-content-center">
+                            <img src="${image}" class="card-img-top img-fluid w-50" alt="phone_img">
+                        </div>
+                        
+                        <div class="card-header h-100 border-0 bg-white mt-2">
+                            <h5 class="card-title">${phoneName}</h5>
+                        </div>
+                        <div class="card-body pt-0">
+                            <p class="card-text ">Brand: ${brand}</p>   
+                        </div>
+                        <div class="card-footer border-0 bg-white">
+                            <a href="#" onclick="handleDetailsShow('${id}')" class="btn btn-primary" id="detailsBtn">Details</a>
+                        </div>
+                    </div>`;
+
+                    const parentContainer = document.getElementById("result-container");
+                    parentContainer.appendChild(div);
+                });
+            });
+
+        }
+
     } else {
+        document.getElementById("spinner").style.display = "none";
         document.getElementById("errMsg").style.display = "block";
         document.getElementById("results").style.display = "none";
     }
-
-
-
-    document.getElementById("spinner").style.display = "none";
-    document.getElementById("results").style.display = "block";
 }
 
 // event listener for details
@@ -100,6 +135,7 @@ const showDetails = data => {
     const others = element.others;
     const id = element.slug;
 
+    // functions to check for more features
     const getMoreFeatures = (others) => {
         if (others !== undefined && Object.keys(others).length !== 0) {
             let element = ``;
@@ -112,6 +148,8 @@ const showDetails = data => {
         }
     }
 
+
+    //detail view create 
     const div = document.createElement("div");
     div.classList.add("col-lg-4", "col-md-6", "col-12");
 
@@ -139,9 +177,5 @@ const showDetails = data => {
             </div>`;
     const parentContainer = document.getElementById("details-container");
     parentContainer.appendChild(div);
-
-    // const cardBody = document.getElementById(`${id}`);
-
-    // functions to check for more features
 
 }
