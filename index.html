@@ -33,54 +33,24 @@
         <!-- instruction end -->
 
         <!-- error msg area  -->
-        <section class="text-center" id="errMsg" style="display: none;">
-            Nothing found
+        <section id="errMsg" style="display: none;">
+            <p class="text-center">Nothing to show</p>
         </section>
         <!-- error msg area end -->
 
+        <!-- spinner  -->
+        <section id="spinner" style="display: none;">
+            <div class="d-flex align-items-center m-5 ">
+                <strong>Loading...</strong>
+                <div class="spinner-border ms-auto " role="status " aria-hidden="true "></div>
+            </div>
+        </section>
+        <!-- spinner end -->
+
+
         <!-- result view  -->
-        <section class="container overflow-hidden">
-            <div class="row g-2" id="result-container">
-                <!-- <div class="col-lg-4 col-md-6 col-12">
-                    <div class="card">
-                        <img src="... " class="card-img-top " alt="... ">
-                        <div class="card-body ">
-                            <h5 class="card-title ">Card title</h5>
-                            <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="# " class="btn btn-primary ">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="card">
-                        <img src="... " class="card-img-top " alt="... ">
-                        <div class="card-body ">
-                            <h5 class="card-title ">Card title</h5>
-                            <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="# " class="btn btn-primary ">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="card">
-                        <img src="... " class="card-img-top " alt="... ">
-                        <div class="card-body ">
-                            <h5 class="card-title ">Card title</h5>
-                            <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="# " class="btn btn-primary ">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="card">
-                        <img src="... " class="card-img-top " alt="... ">
-                        <div class="card-body ">
-                            <h5 class="card-title ">Card title</h5>
-                            <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="# " class="btn btn-primary ">Go somewhere</a>
-                        </div>
-                    </div>
-                </div> -->
+        <section class="container overflow-hidden mb-5" id="results">
+            <div class="row g-2 " id="result-container">
             </div>
         </section>
         <!-- result view end -->
